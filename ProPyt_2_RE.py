@@ -29,22 +29,22 @@ for var_1 in contacts_list:     # Как бы в одном цикле всё з
 del_elem_list = []
 len_list = len(contact_list_return)
 i3 = 0
-while i3 <= len_list:
-  var_1 = contact_list_return [i3]
-  i1 = 0  
-  while i1 <= len_list:
-    var_2 = contact_list_return[i1]
-    if var_1[0] == var_2[0] and var_1[1] == var_2[1] and i1 != i3:
-     for i2 in range (2,7):
-       if len(var_2[i2]) == 0:
-        var_2[i2] = var_1[i2] 
-       if len(var_1[i2]) == 0:
-        var_1[i2] = var_2[i2]
-     contact_list_return[i3] = var_2
-     del contact_list_return[i1]   
-     len_list = len(contact_list_return)
-     i1+=1
-  i3+=1   
+while i3 < len_list:
+    var_1 = contact_list_return [i3]
+    i1 = 1 
+    while i1 < len_list:
+        var_2 = contact_list_return[i1]
+        if var_1[0] == var_2[0] and var_1[1] == var_2[1] and i1 != i3:
+         for i2 in range (2,7):
+           if len(var_2[i2]) == 0:
+            var_2[i2] = var_1[i2] 
+           if len(var_1[i2]) == 0:
+            var_1[i2] = var_2[i2]
+         contact_list_return[i3] = var_2
+         del contact_list_return[i1]   
+         len_list = len(contact_list_return)
+        i1+=1
+    i3+=1   
 # TODO 2: сохраните получившиеся данные в другой файл
 # код для записи файла в формате CSV
 with open("phonebook.csv", "w") as f:
